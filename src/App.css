@@ -425,6 +425,13 @@ input:focus {
     justify-content: center;
     align-items: center;
   }
+  .mobile-listed-nav {
+    padding: 20px;
+  }
+
+  .mobile-listed-nav > a {
+    font-size: 20px;
+  }
 
   .mobile-nav {
     color: white;
