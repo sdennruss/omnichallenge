@@ -501,4 +501,15 @@ input:focus {
   .pop-left > p {
     font-size: 14px;
   }
+  .outer-countries {
+    padding-top: 155px;
+  }
+
+  .text-hero-container {
+    padding-top: 200px;
+  }
+
+  .world-image {
+    flex: unset;
+  }
 }
