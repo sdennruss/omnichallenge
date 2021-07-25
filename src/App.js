@@ -79,7 +79,7 @@ function App() {
           <Route path="/" component={NotFound} />
         </Switch>
       </div>
-      {console.log("Thanks for such a fun project! -Shanice")}
+      {console.log("Thanks for such a fun project! -Shanice Dennis-Russell")}
     </React.Fragment>
   );
 }
