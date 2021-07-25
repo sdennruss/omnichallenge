@@ -387,7 +387,7 @@ input:focus {
     display: flex;
     align-items: center;
     z-index: 3;
-    height: 90px;
+    height: 70px;
     background-color: black;
     width: 100%;
     padding: 0px 10px 0px 0px;
@@ -396,10 +396,10 @@ input:focus {
   }
 
   .mobile-regions-container {
-    height: 90px;
+    height: 60px;
     position: fixed;
     z-index: 1;
-    top: 80px;
+    top: 60px;
     /* margin-top: 20px; */
     background: var(--dominant-color);
     padding: 5px 10px;
@@ -467,9 +467,9 @@ input:focus {
   .regions-link-container {
     display: flex;
     position: fixed;
-    height: 50vh;
+    height: 35vh;
     width: 100%;
-    top: 150px;
+    top: 120px;
     background-color: black;
     align-items: center;
     justify-content: center;
