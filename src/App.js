@@ -79,6 +79,9 @@ function App() {
           <Route path="/" component={NotFound} />
         </Switch>
       </div>
+      {console.log(
+        "Thanks for such a fun project, I really enjoyed it! -Shanice",
+      )}
     </React.Fragment>
   );
 }
