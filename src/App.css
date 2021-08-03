@@ -179,13 +179,12 @@ input:focus {
   height: 70px;
   position: sticky;
   top: 80px;
-  /* margin-top: 20px; */
   background: var(--dominant-color);
   padding: 5px 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
+  width: 98.99%;
 }
 
 .nav-items.region {
