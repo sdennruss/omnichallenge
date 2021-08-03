@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Americas from "../filterRegion/americas";
 import Europe from "../filterRegion/europe";
 import Asia from "../filterRegion/asia";
@@ -7,15 +7,17 @@ import { Link } from "react-router-dom";
 import AllCountries from "../countries/allCountries";
 import TextHero from "../hero/textHero";
 import PopUp from "../pop-up/popUp";
+import { CountryContext } from "../context/countryContext";
 
-const Home = ({
-  search,
-  setSearch,
-  countries,
-  popUpIndex,
-  handlePopUp,
-  setPopUpIndex,
-}) => {
+const Home = ({}) => {
+  const {
+    search,
+    setSearch,
+    countries,
+    popUpIndex,
+    handlePopUp,
+    setPopUpIndex,
+  } = useContext(CountryContext);
   const copyCountries = [...search];
   return (
     <React.Fragment>

@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import Search from "../search/search";
 import MobileAllCountries from "./mobileAllCountries";
+import { CountryContext } from "../context/countryContext";
 
-const AllCountries = ({ countries, setSearch }) => {
+const AllCountries = () => {
+  const { countries, setSearch } = useContext(CountryContext);
   return (
     <React.Fragment>
       <div className="all-countries-container">
@@ -36,7 +38,7 @@ const AllCountries = ({ countries, setSearch }) => {
         </Link>
         <Search setSearch={setSearch} countries={countries} />
       </div>
-      <MobileAllCountries />
+      <MobileAllCountries setSearch={setSearch} countries={countries} />
     </React.Fragment>
   );
 };

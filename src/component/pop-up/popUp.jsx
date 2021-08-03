@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import { CountryContext } from "../context/countryContext";
 
-const PopUp = ({ popUpIndex, search, setPopUpIndex }) => {
+const PopUp = () => {
+  const { search, popUpIndex, setPopUpIndex } = useContext(CountryContext);
   return (
     <React.Fragment>
       <div>

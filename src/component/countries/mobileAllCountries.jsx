@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import MobileLinks from "./mobileLinks";
 
-const MobileAllCountries = () => {
+const MobileAllCountries = ({ setSearch, countries }) => {
   const [expand, setExpand] = useState(false);
 
   return (
@@ -13,7 +13,14 @@ const MobileAllCountries = () => {
           className="fa fa-angle-down mobile"
         ></i>
       </div>
-      {expand && <MobileLinks expand={expand} setExpand={setExpand} />}
+      {expand && (
+        <MobileLinks
+          setSearch={setSearch}
+          countries={countries}
+          expand={expand}
+          setExpand={setExpand}
+        />
+      )}
     </React.Fragment>
   );
 };

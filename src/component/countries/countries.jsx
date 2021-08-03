@@ -1,37 +1,44 @@
-import React from "react";
+import React, { useContext } from "react";
 import AllCountries from "./allCountries";
 import CountryByRegion from "./countryByRegion";
 import { Link } from "react-router-dom";
 import RegionDescription from "./regionDescription";
 import PopUp from "../pop-up/popUp";
+import { CountryContext } from "../context/countryContext";
 
-const Countries = ({
-  match,
-  search,
-  setSearch,
-  countries,
-  popUpIndex,
-  handlePopUp,
-  setPopUpIndex,
-}) => {
+const Countries = ({ match }) => {
   const {
     params: { region },
   } = match;
 
+  const {
+    countries,
+    search,
+    popUpIndex,
+    setSearch,
+    handlePopUp,
+    setPopUpIndex,
+  } = useContext(CountryContext);
+
   return (
     <React.Fragment>
       <div className="outer-countries">
-        <AllCountries setSearch={setSearch} countries={countries} />
+        <CountryContext.Provider
+          value={{
+            countries,
+            search,
+            popUpIndex,
+            setSearch,
+            handlePopUp,
+            setPopUpIndex,
+            region,
+          }}
+        >
+          <AllCountries />
 
-        <RegionDescription region={region} />
-        {popUpIndex && (
-          <PopUp
-            popUpIndex={popUpIndex}
-            search={search}
-            setPopUpIndex={setPopUpIndex}
-          />
-        )}
-
+          <RegionDescription />
+          {popUpIndex && <PopUp />}
+        </CountryContext.Provider>
         <div className="regions-container all">
           {search
             .filter(
@@ -42,7 +49,6 @@ const Countries = ({
               <CountryByRegion
                 key={filteredRegion.id}
                 search={filteredRegion.fields}
-                id={filteredRegion.id}
                 handlePopUp={handlePopUp}
               />
             ))}

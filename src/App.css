@@ -349,12 +349,11 @@ input:focus {
 
 .close-pop-up {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   border-radius: 50px;
-  background-color: var(--accent-color-1);
   font-weight: 500;
-  padding: 5px 110px;
+  padding-right: 40px;
 }
 
 .close {
@@ -469,7 +468,7 @@ input:focus {
   .regions-link-container {
     display: flex;
     position: fixed;
-    height: 35vh;
+    height: 40vh;
     width: 100%;
     top: 120px;
     background-color: black;
@@ -517,14 +516,25 @@ input:focus {
   }
 
   .text-hero-container {
-    padding-top: 200px;
+    padding-top: 150px;
   }
 
   .world-image {
+    height: unset;
     flex: unset;
   }
 
   .pop-up-text {
     margin-top: 5px;
+  }
+
+  input {
+    width: 60%;
+  }
+  .input-container {
+    padding: 10px 20px 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-self: center;
   }
 }

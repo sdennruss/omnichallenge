@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import { CountryContext } from "../context/countryContext";
 
-const RegionDescription = ({ region }) => {
+const RegionDescription = () => {
+  const { region } = useContext(CountryContext);
   return (
     <div className="region-description">
       <p className="para-text">Global Empoyement Solution & PEO in {region}</p>

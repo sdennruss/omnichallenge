@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Search from "../search/search";
 
-const MobileLinks = ({ expand, setExpand }) => {
+const MobileLinks = ({ expand, setExpand, setSearch, countries }) => {
   return (
     <div className="regions-link-container">
       <Link
@@ -39,6 +40,8 @@ const MobileLinks = ({ expand, setExpand }) => {
       >
         Middle East & Africa
       </Link>
+
+      <Search setSearch={setSearch} countries={countries} />
     </div>
   );
 };

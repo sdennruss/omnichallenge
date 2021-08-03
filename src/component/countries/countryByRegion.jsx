@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const CountryByRegion = ({ search, handlePopUp, id }) => {
+const CountryByRegion = ({ search, handlePopUp }) => {
   return (
     <React.Fragment>
       <div className="individual-country-container">
