@@ -1,5 +1,6 @@
 import React from "react";
 import { ReactComponent as Logo } from "./assets/logo.svg";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   const navigations = ["Services", "Global Reach", "About Us", "Resources"];

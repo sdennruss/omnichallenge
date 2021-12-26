@@ -8,60 +8,64 @@ import Home from "./component/home/home";
 import NavBar from "./component/navigation/navbar";
 import MobileToggle from "./component/navigation/mobileToggle";
 import { CountryContext } from "./component/context/countryContext";
+import MainSignUp from "./component/signup/mainSignUp.jsx";
 
 function App() {
-  const [countries, setCountries] = useState([]);
-  const [search, setSearch] = useState([]);
-  const [popUpIndex, setPopUpIndex] = useState("");
+	const [countries, setCountries] = useState([]);
+	const [search, setSearch] = useState([]);
+	const [popUpIndex, setPopUpIndex] = useState("");
 
-  const handleAirTableCountries = () => {
-    base("Countries")
-      .select({ view: "Grid view", maxRecords: 160 })
-      .eachPage((records) => {
-        setCountries(records) || setSearch(records);
-      });
-  };
-  useEffect(() => {
-    handleAirTableCountries();
-  }, []);
+	const handleAirTableCountries = () => {
+		base("Countries")
+			.select({ view: "Grid view", maxRecords: 160 })
+			.eachPage((records) => {
+				setCountries(records) || setSearch(records);
+				console.log(records);
+			});
+	};
+	useEffect(() => {
+		handleAirTableCountries();
+	}, []);
 
-  const handlePopUp = (name) => {
-    const filterIndex = search.findIndex((p) => p.fields.Name === name);
-    setPopUpIndex(filterIndex);
-  };
+	const handlePopUp = (name) => {
+		const filterIndex = countries.findIndex((p) => p.fields.Name === name);
+		setPopUpIndex(filterIndex);
+		console.log(filterIndex);
+		console.log(name);
+	};
 
-  return (
-    <React.Fragment>
-      <NavBar />
-      <MobileToggle />
+	return (
+		<React.Fragment>
+			<NavBar />
+			<MobileToggle />
 
-      <CountryContext.Provider
-        value={{
-          countries,
-          search,
-          popUpIndex,
-          setSearch,
-          handlePopUp,
-          setPopUpIndex,
-        }}
-      >
-        <div className="routing-container">
-          <Switch>
-            <Route
-              path="/global-employement-solutions/:region"
-              render={(props) => <Countries {...props} />}
-            />
-            <Route
-              path="/global-employement-solutions"
-              render={(props) => <Home {...props} />}
-            />
-            <Route path="/" exact render={(props) => <Home {...props} />} />
-            <Route path="/" component={NotFound} />
-          </Switch>
-        </div>
-      </CountryContext.Provider>
-    </React.Fragment>
-  );
+			<CountryContext.Provider
+				value={{
+					countries,
+					search,
+					popUpIndex,
+					setSearch,
+					handlePopUp,
+					setPopUpIndex,
+				}}
+			>
+				<div className="routing-container">
+					<Switch>
+						<Route
+							path="/global-employement-solutions/:region"
+							render={(props) => <Countries {...props} />}
+						/>
+						<Route
+							path="/global-employement-solutions"
+							render={(props) => <Home {...props} />}
+						/>
+						<Route path="/" exact render={(props) => <Home {...props} />} />
+						<Route path="/" component={NotFound} />
+					</Switch>
+				</div>
+			</CountryContext.Provider>
+		</React.Fragment>
+	);
 }
 
 export default App;
